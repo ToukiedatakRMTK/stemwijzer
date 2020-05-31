@@ -46,12 +46,12 @@ ideologies = [
     {
         "name": "ACAB",
         "stats": {
-            "FRL": 15,
-            "REG": 65,
-            "DEM": 100,
-            "COM": 85,
-            "PRO": 85,
-            "ISO": 10
+            "FRL": 70,
+            "REG": 85,
+            "DEM": 90,
+            "COM": 95,
+            "PRO": 90,
+            "ISO": 15
         }
     },
     {
