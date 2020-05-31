@@ -1,0 +1,105 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
+    <link href='style.css' rel='stylesheet' type='text/css'>
+    <title>RMTK stemwijzer</title>
+    <link rel="icon" type="x-icon" href="icon.png">
+    <link rel="shortcut icon" type="x-icon" href="icon.png">
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <script type="application/javascript" src="questions.js">
+    </script>
+    <h1>RMTK stemwijzer</h1>
+    <hr>
+    <h2 style="text-align:center;" id="question-number">Loading...</h2>
+    <p class="question" id="question-text"></p>
+    <button class="button" onclick="next_question( 1.0)" style="background-color: #1b5e20;">Zeer mee eens</button> <br>
+    <button class="button" onclick="next_question( 0.5)" style="background-color: #4caf50;">Eens</button> <br>
+    <button class="button" onclick="next_question( 0.0)" style="background-color: #bbbbbb;">Neutraal</button> <br>
+    <button class="button" onclick="next_question(-0.5)" style="background-color: #f44336;">Oneens</button> <br>
+    <button class="button" onclick="next_question(-1.0)" style="background-color: #b71c1c;">Zeer mee oneens</button>
+    <br>
+    <button class="small_button" onclick="prev_question()" id="back_button">Terug</button>
+    <button class="small_button_off" id="back_button_off">Terug</button><br>
+
+    <!-- JavaScript for the test itself -->
+
+    <script>
+        var max_FRL, max_REG, max_DEM, max_COM, max_PRO, max_ISO; // Max possible scores
+        max_FRL = max_REG = max_DEM = max_COM = max_PRO = max_ISO = 0;
+        var FRL, REG, DEM, COM, PRO, ISO; // User's scores
+        FRL = REG = DEM = COM = PRO = ISO = 0;
+        var qn = 0; // Question number
+        var prev_answer = null;
+        init_question();
+        for (var i = 0; i < questions.length; i++) {
+            max_FRL += Math.abs(questions[i].effect.FRL)
+            max_REG += Math.abs(questions[i].effect.REG)
+            max_DEM += Math.abs(questions[i].effect.DEM)
+            max_COM += Math.abs(questions[i].effect.COM)
+            max_PRO += Math.abs(questions[i].effect.PRO)
+            max_ISO += Math.abs(questions[i].effect.ISO)
+        }
+        function init_question() {
+            document.getElementById("question-text").innerHTML = questions[qn].question;
+            document.getElementById("question-number").innerHTML = "Question " + (qn + 1) + " of " + (questions.length);
+            if (prev_answer == null) {
+                document.getElementById("back_button").style.display = 'none';
+                document.getElementById("back_button_off").style.display = 'block';
+            } else {
+                document.getElementById("back_button").style.display = 'block';
+                document.getElementById("back_button_off").style.display = 'none';
+            }
+
+        }
+
+        function next_question(mult) {
+            FRL += mult * questions[qn].effect.FRL
+            REG += mult * questions[qn].effect.REG
+            DEM += mult * questions[qn].effect.DEM
+            COM += mult * questions[qn].effect.COM
+            PRO += mult * questions[qn].effect.PRO
+            ISO += mult * questions[qn].effect.ISO
+            qn++;
+            prev_answer = mult;
+            if (qn < questions.length) {
+                init_question();
+            } else {
+                results();
+            }
+        }
+        function prev_question() {
+            if (prev_answer == null) {
+                return;
+            }
+            qn--;
+            FRL -= prev_answer * questions[qn].effect.FRL;
+            REG -= prev_answer * questions[qn].effect.REG;
+            DEM -= prev_answer * questions[qn].effect.DEM;
+            COM -= prev_answer * questions[qn].effect.COM;
+            PRO -= prev_answer * questions[qn].effect.PRO;
+            ISO -= prev_answer * questions[qn].effect.ISO;
+            prev_answer = null;
+            init_question();
+
+        }
+        function calc_score(score, max) {
+            var newscore = (100 * (max + score) / (2 * max)).toFixed(1)
+            if (newscore == 95.2) {
+                return 100;
+            } else {
+                return newscore;
+            }
+        }
+        function results() {
+            location.href = `results.html`
+                + `?f=${calc_score(FRL, max_FRL)}`
+                + `&r=${calc_score(REG, max_REG)}`
+                + `&d=${calc_score(DEM, max_DEM)}`
+                + `&c=${calc_score(COM, max_COM)}`
+                + `&p=${calc_score(PRO, max_PRO)}`
+                + `&i=${calc_score(ISO, max_ISO)}`
+        }
+    </script>
+</body>

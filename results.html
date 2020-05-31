@@ -1,0 +1,151 @@
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
+    <link href='style.css' rel='stylesheet' type='text/css'>
+    <title>8values Results</title>
+    <link rel="icon" type="x-icon" href="icon.png">
+    <link rel="shortcut icon" type="x-icon" href="icon.png">
+    <meta charset="utf-8">
+    <script>
+        version = "Test Edition #1" //Remember to update this before making changes to the test itself!
+    </script>
+</head>
+<script type="application/javascript" src="ideologies.js">
+</script>
+
+<body>
+    <h1>8values</h1>
+    <hr>
+
+    <h1>Results</h1>
+
+    <h2>Friese As: <span class="weight-300" id="Fries-label"></span></h2>
+    <div class="axis">
+        <img id="img-Friesland" src="value_images/Friesland.svg" height="128pt" />
+        <div class="bar Friesland" id="bar-Friesland">
+            <div class="text-wrapper" id="Friesland"></div>
+        </div>
+        <div class="bar Nederland" id="bar-Nederland">
+            <div class="text-wrapper" id="Nederland"></div>
+        </div>
+        <img id="img-Nederland" src="value_images/Nederland.svg" height="128pt" />
+    </div>
+    <h2>Regionale As: <span class="weight-300" id="Regionale-label"></span></h2>
+    <div class="axis">
+        <img id="img-Regionaal" src="value_images/Regionaal.svg" height="128pt" />
+        <div class="bar Regionaal" id="bar-Regionaal">
+            <div class="text-wrapper" id="Regionaal"></div>
+        </div>
+        <div class="bar Centraal" id="bar-Centraal">
+            <div class="text-wrapper" id="Centraal"></div>
+        </div>
+        <img id="img-Centraal" src="value_images/Centraal.svg" height="128pt" />
+    </div>
+    <h2>Democratische As: <span class="weight-300" id="Democratische-label"></span></h2>
+    <div class="axis">
+        <img id="img-Democratie" src="value_images/Democratie.svg" height="128pt" />
+        <div class="bar Democratie" id="bar-Democratie">
+            <div class="text-wrapper" id="Democratie"></div>
+        </div>
+        <div class="bar Autoritarisme" id="bar-Autoritarisme">
+            <div class="text-wrapper" id="Autoritarisme"></div>
+        </div>
+        <img id="img-Autoritarisme" src="value_images/Autoritarisme.svg" height="128pt" />
+    </div>
+    <h2>Communistische As: <span class="weight-300" id="communistische-label"></span></h2>
+    <div class="axis">
+        <img id="img-Communisme" src="value_images/Communisme.svg" height="128pt" />
+        <div class="bar Communisme" id="bar-Communisme">
+            <div class="text-wrapper" id="Communisme"></div>
+        </div>
+        <div class="bar Kapitalisme" id="bar-Kapitalisme">
+            <div class="text-wrapper" id="Kapitalisme"></div>
+        </div>
+        <img id="img-Kapitalisme" src="value_images/Kapitalisme.svg" height="128pt" />
+    </div>
+    <h2>Closest Match: <span class="weight-300" id="ideology-label"></span></h2>
+    <p>Ideological matching is a work in progress, and is much less accurate than the values and axes.</p>
+    <p>You can send these results by copying and pasting the URL at the top of the page or using the image below. Think
+        your matched ideology was wrong? Want to help us calibrate the test? Send the results along with your political
+        ideology to us at eightvalues@gmail.com, or send us any comments, questions, or criticism. </p>
+    <hr />
+    <img src="" id="banner">
+    <button class="button" onclick="location.href='index.html';" style="background-color: #2196f3;">Back</button> <br>
+
+    <script>
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1)
+            var vars = query.split("&")
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=")
+                if (pair[0] == variable) { return pair[1] }
+            }
+            return (NaN);
+        }
+
+        function setBarValue(name, value) {
+            innerel = document.getElementById(name)
+            outerel = document.getElementById("bar-" + name)
+            outerel.style.width = (value + "%")
+            innerel.innerHTML = (value + "%")
+            if (innerel.offsetWidth + 20 > outerel.offsetWidth) {
+                innerel.style.visibility = "hidden"
+            }
+        }
+
+        frlArray = ["potentieel FBL lid", "pro Fries", "Friese neiging", "neutraal", "Anti-Friese neiging", "Anti-Fries", "Friesland hater"]
+        regArray = ["Cosmopolitan", "Internationalist", "Peaceful", "Balanced", "Patriotic", "Nationalist", "Chauvinist"]
+        demArray = ["Anarchist", "Libertarian", "Liberal", "Moderate", "Statist", "Authoritarian", "Totalitarian"]
+        comArray = ["Revolutionary", "Very Progressive", "Progressive", "Neutral", "Traditional", "Very Traditional", "Reactionary"]
+
+        function setLabel(val, ary) {
+            if (val > 100) { return "" } else
+                if (val > 90) { return ary[0] } else
+                    if (val > 75) { return ary[1] } else
+                        if (val > 60) { return ary[2] } else
+                            if (val >= 40) { return ary[3] } else
+                                if (val >= 25) { return ary[4] } else
+                                    if (val >= 10) { return ary[5] } else
+                                        if (val >= 0) { return ary[6] } else { return "" }
+        }
+
+        Friesland = getQueryVariable("f")
+        Regionaal = getQueryVariable("r")
+        Democratie = getQueryVariable("d")
+        Communisme = getQueryVariable("c")
+        Nederland = (100 - Friesland).toFixed(1)
+        Centraal = (100 - Regionaal).toFixed(1)
+        Autoritarisme = (100 - Democratie).toFixed(1)
+        Kapitalisme = (100 - Communisme).toFixed(1)
+
+        setBarValue("Friesland", Friesland)
+        setBarValue("Nederland", Nederland)
+        setBarValue("Centraal", Centraal)
+        setBarValue("Regionaal", Regionaal)
+        setBarValue("Democratie", Democratie)
+        setBarValue("Autoritarisme", Autoritarisme)
+        setBarValue("Kapitalisme", Kapitalisme)
+        setBarValue("Communisme", Communisme)
+
+        document.getElementById("Fries-label").innerHTML = setLabel(Friesland, frlArray)
+        document.getElementById("Regionale-label").innerHTML = setLabel(Centraal, regArray)
+        document.getElementById("Democratische-label").innerHTML = setLabel(Democratie, demArray)
+        document.getElementById("communistische-label").innerHTML = setLabel(Kapitalisme, comArray)
+
+        ideology = ""
+        ideodist = Infinity
+        for (var i = 0; i < ideologies.length; i++) {
+            dist = 0
+            dist += Math.pow(Math.abs(ideologies[i].stats.FRL - Friesland), 2)
+            dist += Math.pow(Math.abs(ideologies[i].stats.DEM - Democratie), 2)
+            dist += Math.pow(Math.abs(ideologies[i].stats.REG - Centraal), 2)
+            dist += Math.pow(Math.abs(ideologies[i].stats.COM - Kapitalisme), 1.73856063)
+            if (dist < ideodist) {
+                ideology = ideologies[i].name
+                ideodist = dist
+            }
+        }
+        document.getElementById("ideology-label").innerHTML = ideology
+
+
+    </script>
+</body>
