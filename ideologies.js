@@ -15,10 +15,10 @@ ideologies = [
         "stats": {
             "FRL": 10,
             "REG": 20,
-            "DEM": 60,
-            "COM": 10,
-            "PRO": 35,
-            "ISO": 25
+            "DEM": 65,
+            "COM": 25,
+            "PRO": 30,
+            "ISO": 35
         }
     },
     {
