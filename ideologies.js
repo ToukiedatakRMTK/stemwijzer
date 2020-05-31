@@ -11,13 +11,46 @@ ideologies = [
         }
     },
     {
-        "name": "Niet LTD",
+        "name": "NRV",
         "stats": {
-            "FRL": 0,
-            "REG": 50,
-            "DEM": 50,
+            "FRL": 10,
+            "REG": 20,
+            "DEM": 60,
+            "COM": 10,
+            "PRO": 35,
+            "ISO": 25
+        }
+    },
+    {
+        "name": "1NL",
+        "stats": {
+            "FRL": 10,
+            "REG": 35,
+            "DEM": 75,
+            "COM": 60,
+            "PRO": 30,
+            "ISO": 55
+        }
+    },
+    {
+        "name": "ACAB",
+        "stats": {
+            "FRL": 15,
+            "REG": 65,
+            "DEM": 100,
+            "COM": 85,
+            "PRO": 85,
+            "ISO": 10
+        }
+    },
+    {
+        "name": "GPA",
+        "stats": {
+            "FRL": 30,
+            "REG": 45,
+            "DEM": 70,
             "COM": 50,
-            "PRO": 50,
+            "PRO": 70,
             "ISO": 50
         }
     }
