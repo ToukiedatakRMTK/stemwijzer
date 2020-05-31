@@ -22,6 +22,17 @@ ideologies = [
         }
     },
     {
+        "name": "LP",
+        "stats": {
+            "FRL": 45,
+            "REG": 80,
+            "DEM": 55,
+            "COM": 90,
+            "PRO": 30,
+            "ISO": 75
+        }
+    },
+    {
         "name": "1NL",
         "stats": {
             "FRL": 10,
