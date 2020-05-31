@@ -1,9 +1,9 @@
 ideologies = [
     {
-        "name": "Fries",
+        "name": "LTD",
         "stats": {
-            "FRL": 100,
-            "REG": 50,
+            "FRL": 95,
+            "REG": 80,
             "DEM": 50,
             "COM": 50,
             "PRO": 50,
@@ -11,7 +11,7 @@ ideologies = [
         }
     },
     {
-        "name": "Anti Fries",
+        "name": "Niet LTD",
         "stats": {
             "FRL": 0,
             "REG": 50,

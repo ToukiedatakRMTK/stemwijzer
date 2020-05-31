@@ -140,42 +140,62 @@ div.text-wrapper {
     display: inline-block;
 }
 div.Friesland {
-    background-color: #f44336;
+    background-color: #0155a5;
     text-align: left;
     border-right-style: solid;
 }
 div.Nederland {
-    background-color: #00897b;
+    background-color: #f36c21;
     text-align: right;
     border-left-style: solid;
 }
 div.Democratie {
-    background-color: #ffeb3b;
+    background-color: #bb0000;
     text-align: left;
     border-right-style: solid;
 }
 div.Autoritarisme {
-    background-color: #3f51b5;
+    background-color: #ffd900;
     text-align: right;
     border-left-style: solid;
 }
 div.Centraal {
-    background-color: #03a9f4;
+    background-color: #03b0f4;
     text-align: right;
     border-left-style: solid;
 }
 div.Regionaal {
-    background-color: #ff9800;
+    background-color: #00af35;
     text-align: left;
     border-right-style: solid;
 }
 div.Kapitalisme {
-    background-color: #9c27b0;
+    background-color: #8c00ff;
     text-align: right;
     border-left-style: solid;
 }
 div.Communisme {
-    background-color: #8bc34a;
+    background-color: #ff0000;
+    text-align: left;
+    border-right-style: solid;
+}
+div.Progressief {
+    background-color: #ff00aa;
+    text-align: right;
+    border-left-style: solid;
+}
+div.Conservatief {
+    background-color: #427500;
+    text-align: left;
+    border-right-style: solid;
+}
+div.Isolationisme {
+    background-color: #fbff00;
+    text-align: left;
+    border-right-style: solid;
+}
+div.Internationalisme {
+    background-color: #00cfbe;
     text-align: left;
     border-right-style: solid;
 }

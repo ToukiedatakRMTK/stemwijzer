@@ -123,7 +123,7 @@ questions = [
         }
     },
     {
-        "question": "Mensen moeten zichzelf zien als Nederlanders ipv uit welke provincie ze komen.",
+        "question": "Mensen moeten zichzelf eerder zien als Nederlanders ipv uit welke provincie ze komen.",
         "effect": {
             "FRL": 0,
             "REG": -10,
@@ -216,7 +216,7 @@ questions = [
         "effect": {
             "FRL": 0,
             "REG": 0,
-            "DEM": -20,
+            "DEM": -15,
             "COM": 0,
             "PRO": 0,
             "ISO": 0
@@ -227,7 +227,7 @@ questions = [
         "effect": {
             "FRL": 0,
             "REG": 0,
-            "DEM": -20,
+            "DEM": -10,
             "COM": 0,
             "PRO": 0,
             "ISO": 0
@@ -238,7 +238,7 @@ questions = [
         "effect": {
             "FRL": 0,
             "REG": 0,
-            "DEM": -15,
+            "DEM": -10,
             "COM": 0,
             "PRO": 0,
             "ISO": 0
@@ -279,18 +279,18 @@ questions = [
         }
     },
     {
-        "question": "De overheid moet niet in de markt ingrijpen.",
+        "question": "De overheid moet zo min mogelijk in de markt ingrijpen.",
         "effect": {
             "FRL": 0,
             "REG": 0,
             "DEM": 0,
-            "COM": -10,
+            "COM": -15,
             "PRO": 0,
             "ISO": 0
         }
     },
     {
-        "question": "Alle sectoren die door de publieke sector worden uitgevoerd moeten worden vervangen door de private sector.",
+        "question": "Sectoren die door de publieke sector worden uitgevoerd zouden moeten worden vervangen door de private sector.",
         "effect": {
             "FRL": 0,
             "REG": 0,
@@ -335,7 +335,7 @@ questions = [
     },
     // progressief vs conservatief
     {
-        "question": "Drugs moet gelegaliseerd dan wel gedecriminaliseerd worden.",
+        "question": "Drugs moeten gelegaliseerd dan wel gedecriminaliseerd worden.",
         "effect": {
             "FRL": 0,
             "REG": 0,
