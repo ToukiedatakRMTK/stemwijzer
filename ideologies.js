@@ -57,12 +57,12 @@ ideologies = [
     {
         "name": "SP",
         "stats": {
-            "FRL": 95,
+            "FRL": 85,
             "REG": 50,
-            "DEM": 60,
+            "DEM": 75,
             "COM": 100,
-            "PRO": 70,
-            "ISO": 20
+            "PRO": 75,
+            "ISO": 30
         }
     },
     {
