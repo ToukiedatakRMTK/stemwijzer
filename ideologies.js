@@ -55,6 +55,17 @@ ideologies = [
         }
     },
     {
+        "name": "SP",
+        "stats": {
+            "FRL": 95,
+            "REG": 50,
+            "DEM": 60,
+            "COM": 100,
+            "PRO": 70,
+            "ISO": 20
+        }
+    },
+    {
         "name": "GPA",
         "stats": {
             "FRL": 30,
