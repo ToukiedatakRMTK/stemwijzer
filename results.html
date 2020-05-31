@@ -1,7 +1,7 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:400,700" rel="stylesheet">
     <link href='style.css' rel='stylesheet' type='text/css'>
-    <title>8values Results</title>
+    <title>RMTK stemwijzer resultaten</title>
     <link rel="icon" type="x-icon" href="icon.png">
     <link rel="shortcut icon" type="x-icon" href="icon.png">
     <meta charset="utf-8">
@@ -13,10 +13,10 @@
 </script>
 
 <body>
-    <h1>8values</h1>
+    <h1>RMTK stemwijzer</h1>
     <hr>
 
-    <h1>Results</h1>
+    <h1>Resultaten</h1>
 
     <h2>Friese As: <span class="weight-300" id="Fries-label"></span></h2>
     <div class="axis">
@@ -62,14 +62,32 @@
         </div>
         <img id="img-Kapitalisme" src="value_images/Kapitalisme.svg" height="128pt" />
     </div>
-    <h2>Closest Match: <span class="weight-300" id="ideology-label"></span></h2>
-    <p>Ideological matching is a work in progress, and is much less accurate than the values and axes.</p>
-    <p>You can send these results by copying and pasting the URL at the top of the page or using the image below. Think
-        your matched ideology was wrong? Want to help us calibrate the test? Send the results along with your political
-        ideology to us at eightvalues@gmail.com, or send us any comments, questions, or criticism. </p>
+    <h2>Progressieve As: <span class="weight-300" id="Progressieve-label"></span></h2>
+    <div class="axis">
+        <img id="img-Progressief" src="value_images/Progressief.svg" height="128pt" />
+        <div class="bar Progressief" id="bar-Progressief">
+            <div class="text-wrapper" id="Progressief"></div>
+        </div>
+        <div class="bar Conservatief" id="bar-Conservatief">
+            <div class="text-wrapper" id="Conservatief"></div>
+        </div>
+        <img id="img-Conservatief" src="value_images/Conservatief.svg" height="128pt" />
+    </div>
+    <h2>Isolationistische As: <span class="weight-300" id="Isolationistische-label"></span></h2>
+    <div class="axis">
+        <img id="img-Isolationisme" src="value_images/Isolationisme.svg" height="128pt" />
+        <div class="bar Isolationisme" id="bar-Isolationisme">
+            <div class="text-wrapper" id="Isolationisme"></div>
+        </div>
+        <div class="bar Internationalisme" id="bar-Internationalisme">
+            <div class="text-wrapper" id="Internationalisme"></div>
+        </div>
+        <img id="img-Internationalisme" src="value_images/Internationalisme.svg" height="128pt" />
+    </div>
+    <h2>Partij met meeste overeenkomst: <span class="weight-300" id="ideology-label"></span></h2>
     <hr />
     <img src="" id="banner">
-    <button class="button" onclick="location.href='index.html';" style="background-color: #2196f3;">Back</button> <br>
+    <button class="button" onclick="location.href='index.html';" style="background-color: #2196f3;">Terug</button> <br>
 
     <script>
         function getQueryVariable(variable) {
@@ -92,10 +110,12 @@
             }
         }
 
-        frlArray = ["potentieel FBL lid", "pro Fries", "Friese neiging", "neutraal", "Anti-Friese neiging", "Anti-Fries", "Friesland hater"]
-        regArray = ["Cosmopolitan", "Internationalist", "Peaceful", "Balanced", "Patriotic", "Nationalist", "Chauvinist"]
-        demArray = ["Anarchist", "Libertarian", "Liberal", "Moderate", "Statist", "Authoritarian", "Totalitarian"]
-        comArray = ["Revolutionary", "Very Progressive", "Progressive", "Neutral", "Traditional", "Very Traditional", "Reactionary"]
+        frlArray = ["potentieel FBL lid", "pro Fries", "Friese neiging", "Neutraal", "Anti-Friese neiging", "Anti-Fries", "Friesland hater"]
+        regArray = ["Eenheidsworst", "pro centralisatie", "Neutraal", "Neutraal", "Neutraal", "Regionalist", "Fanatiek regionalist"]
+        demArray = ["Anarchist", "libertariër ", "Liberaal", "Gematigde", "Staat fanaat", "Authoritarian", "Totalitarian"]
+        comArray = ["Communist", "Socialist", "Sociaal", "Centrist", "Markt", "Kapitalist", "Laissez-Faire"]
+        proArray = ["Revolutionair", "Zeer progressief", "progressief", "Neutraal", "Conservatief", "Zeer conservatief", "Reactionair"]
+        isoArray = ["Kluizenaar", "Xenofoob", "Neutraal", "Neutraal", "Neutraal", "Internationalist", "Wereldburger"]
 
         function setLabel(val, ary) {
             if (val > 100) { return "" } else
@@ -112,10 +132,14 @@
         Regionaal = getQueryVariable("r")
         Democratie = getQueryVariable("d")
         Communisme = getQueryVariable("c")
+        Progressief = getQueryVariable("p")
+        Isolationisme = getQueryVariable("i")
         Nederland = (100 - Friesland).toFixed(1)
         Centraal = (100 - Regionaal).toFixed(1)
         Autoritarisme = (100 - Democratie).toFixed(1)
         Kapitalisme = (100 - Communisme).toFixed(1)
+        Conservatief = (100 - Progressief).toFixed(1)
+        Internationalisme = (100 - Isolationisme).toFixed(1)
 
         setBarValue("Friesland", Friesland)
         setBarValue("Nederland", Nederland)
@@ -125,11 +149,17 @@
         setBarValue("Autoritarisme", Autoritarisme)
         setBarValue("Kapitalisme", Kapitalisme)
         setBarValue("Communisme", Communisme)
+        setBarValue("Progressief", Progressief)
+        setBarValue("Conservatief", Conservatief)
+        setBarValue("Isolationisme", Isolationisme)
+        setBarValue("Internationalisme", Internationalisme)
 
         document.getElementById("Fries-label").innerHTML = setLabel(Friesland, frlArray)
         document.getElementById("Regionale-label").innerHTML = setLabel(Centraal, regArray)
         document.getElementById("Democratische-label").innerHTML = setLabel(Democratie, demArray)
-        document.getElementById("communistische-label").innerHTML = setLabel(Kapitalisme, comArray)
+        document.getElementById("communistische-label").innerHTML = setLabel(Communisme, comArray)
+        document.getElementById("Progressieve-label").innerHTML = setLabel(Progressief, proArray)
+        document.getElementById("Isolationistische-label").innerHTML = setLabel(Isolationisme, isoArray)
 
         ideology = ""
         ideodist = Infinity
@@ -139,6 +169,8 @@
             dist += Math.pow(Math.abs(ideologies[i].stats.DEM - Democratie), 2)
             dist += Math.pow(Math.abs(ideologies[i].stats.REG - Centraal), 2)
             dist += Math.pow(Math.abs(ideologies[i].stats.COM - Kapitalisme), 1.73856063)
+            dist += Math.pow(Math.abs(ideologies[i].stats.PRO - Progressief), 2)
+            dist += Math.pow(Math.abs(ideologies[i].stats.ISO - Isolationisme), 2)
             if (dist < ideodist) {
                 ideology = ideologies[i].name
                 ideodist = dist
