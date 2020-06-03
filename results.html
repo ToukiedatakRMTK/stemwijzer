@@ -84,7 +84,8 @@
         </div>
         <img id="img-Internationalisme" src="value_images/Internationalisme.svg" height="128pt" />
     </div>
-    <h2>Partij met meeste overeenkomst: <span class="weight-300" id="ideology-label"></span></h2>
+    <h2>Partijen in volgorde van meeste overeenkomst naar minste overeenkomst: <span class="weight-300"
+            id="ideology-label"></span></h2>
     <hr />
     <img src="" id="banner">
     <button class="button" onclick="location.href='index.html';" style="background-color: #2196f3;">Terug</button> <br>
@@ -161,22 +162,36 @@
         document.getElementById("Progressieve-label").innerHTML = setLabel(Progressief, proArray)
         document.getElementById("Isolationistische-label").innerHTML = setLabel(Isolationisme, isoArray)
 
+        var resultaten = [];
+
         ideology = ""
         ideodist = Infinity
-        for (var i = 0; i < ideologies.length; i++) {
+        for (var key in ideologies) {
             dist = 0
-            dist += Math.pow(Math.abs(ideologies[i].stats.FRL - Friesland), 2)
-            dist += Math.pow(Math.abs(ideologies[i].stats.DEM - Democratie), 2)
-            dist += Math.pow(Math.abs(ideologies[i].stats.REG - Centraal), 2)
-            dist += Math.pow(Math.abs(ideologies[i].stats.COM - Kapitalisme), 1.73856063)
-            dist += Math.pow(Math.abs(ideologies[i].stats.PRO - Progressief), 2)
-            dist += Math.pow(Math.abs(ideologies[i].stats.ISO - Isolationisme), 2)
+            dist += Math.pow(Math.abs(ideologies[key].stats.FRL - Friesland), 2)
+            dist += Math.pow(Math.abs(ideologies[key].stats.DEM - Democratie), 2)
+            dist += Math.pow(Math.abs(ideologies[key].stats.REG - Centraal), 2)
+            dist += Math.pow(Math.abs(ideologies[key].stats.COM - Kapitalisme), 2)
+            dist += Math.pow(Math.abs(ideologies[key].stats.PRO - Progressief), 2)
+            dist += Math.pow(Math.abs(ideologies[key].stats.ISO - Isolationisme), 2)
+
+            resultaten.push({ "partij": ideologies[key].name, "score": dist });
             if (dist < ideodist) {
-                ideology = ideologies[i].name
+                ideology = ideologies[key].name
                 ideodist = dist
             }
         }
-        document.getElementById("ideology-label").innerHTML = ideology
+        resultaten.sort(function (a, b) {
+            return a.score - b.score
+        });
+
+        var partijenlijst = []
+
+        for (var i in resultaten) {
+            partijenlijst.push(" " + resultaten[i].partij);
+        }
+
+        document.getElementById("ideology-label").innerHTML = partijenlijst
 
 
     </script>
