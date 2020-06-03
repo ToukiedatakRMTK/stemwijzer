@@ -168,12 +168,12 @@
         ideodist = Infinity
         for (var key in ideologies) {
             dist = 0
-            dist += Math.pow(Math.abs(ideologies[key].stats.FRL - Friesland), 2)
-            dist += Math.pow(Math.abs(ideologies[key].stats.DEM - Democratie), 2)
-            dist += Math.pow(Math.abs(ideologies[key].stats.REG - Centraal), 2)
-            dist += Math.pow(Math.abs(ideologies[key].stats.COM - Kapitalisme), 2)
-            dist += Math.pow(Math.abs(ideologies[key].stats.PRO - Progressief), 2)
-            dist += Math.pow(Math.abs(ideologies[key].stats.ISO - Isolationisme), 2)
+            dist += Math.pow(Math.abs(ideologies[key].stats.FRL - Friesland), 1.5)
+            dist += Math.pow(Math.abs(ideologies[key].stats.DEM - Democratie), 1.5)
+            dist += Math.pow(Math.abs(ideologies[key].stats.REG - Centraal), 1.5)
+            dist += Math.pow(Math.abs(ideologies[key].stats.COM - Kapitalisme), 1.5)
+            dist += Math.pow(Math.abs(ideologies[key].stats.PRO - Progressief), 1.5)
+            dist += Math.pow(Math.abs(ideologies[key].stats.ISO - Isolationisme), 1.5)
 
             resultaten.push({ "partij": ideologies[key].name, "score": dist });
             if (dist < ideodist) {
