@@ -184,6 +184,7 @@
         resultaten.sort(function (a, b) {
             return a.score - b.score
         });
+        console.log(resultaten);
 
         var partijenlijst = []
 
@@ -191,6 +192,7 @@
             partijenlijst.push(" " + resultaten[i].partij);
         }
 
+        console.log(partijenlijst)
         document.getElementById("ideology-label").innerHTML = partijenlijst
 
 
