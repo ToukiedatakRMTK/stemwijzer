@@ -7,7 +7,7 @@ body {
     min-height: calc(100vh - 4em);
     margin: 0 auto;
     padding: 2em;
-    background-color: #dddddd;
+    background-color: #d4d4d4;
     border-color: #eeeeee;
     border-left-style: solid;
     border-right-style: solid;
@@ -155,7 +155,7 @@ div.Democratie {
     border-right-style: solid;
 }
 div.Autoritarisme {
-    background-color: #ffd900;
+    background-color: #8c00ff;
     text-align: right;
     border-left-style: solid;
 }
@@ -170,7 +170,7 @@ div.Regionaal {
     border-right-style: solid;
 }
 div.Kapitalisme {
-    background-color: #8c00ff;
+    background-color: #ffd900;
     text-align: right;
     border-left-style: solid;
 }
